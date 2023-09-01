@@ -19,6 +19,7 @@ generateBtn.addEventListener("click", writePassword);
 function passPrompt() {
   var click = alert("Thank you for creating a strong password.  Please select what you would like to include in your password from the prompts that follow.  Please press Ok to continue.")
 
+
   // Issue #3 - Add a prompt for the number of characters user is requesting.
   // The parse integer function is used with the prompt to give the value entered a type of number as it will deafult to a string.
   // The while function will continue to prompt until a valid value is entered.  If text is entered it will be caught
@@ -31,8 +32,27 @@ function passPrompt() {
   numCtrs = parseInt(prompt(`You entered: ${numCtrs}. Please enter a valid number between 8 - 128.`));
   }
 
+  // Issue #2 - Select which character types to include
+
+  // This will ask to include special characters and store it in the specialCharac variable.
+  let specialCharac= parseInt(prompt('Would you like to include special characters in your password? 1 = Yes, 2 = No'))
+
+  while (!specialCharac || specialCharac > 2) {
+    specialCharac = parseInt(prompt('Please select a valid response by either entering 1 for Yes or 2 for No.'));
+  } if (specialCharac === 1) {
+      alert('Thank you.  Special Characters will be included in your password.');
+  } else {
+      alert('Special Characters will not be included in your password.');
+  }
+
+  // This will ask to include uppercase letters and store it in the upperCaseLett variable.
+  let upperCaseLett = parseInt(prompt('Would you like to include uppercase letters in your password? 1 = Yes or 2 = No.'));
+
+  while (!upperCaseLett || upperCaseLett > 2) {
+    upperCaseLett = parseInt(prompt('Please select a valid response by either entering 1 for Yes or 2 for No.'));
+  } if (upperCaseLett === 1) {
+    alert('Thank you.  Uppercase letters will be included in your password.');
+  } else {
+    alert('Uppercase letters will not be included in your password.');
+  }
 }
-
-
-
-
