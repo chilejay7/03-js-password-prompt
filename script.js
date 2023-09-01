@@ -14,12 +14,19 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
+// The userInput variable needed to be declared within the global scope to make data avaible to other functions and statements.  The varialbe was created empty to capture to the output of the passPrompt function.
+let userInput = "";
+
 //Issue #1 - Open prompt on click
 // The function below was added to the attributes of the button element in the html.
+
 function passPrompt() {
+
   var click = alert("Thank you for choosing to create a strong password.  Please select what you would like to include in your password from the prompts that follow.  Please press Ok to continue.")
 
-  // Issue #3 - Add a prompt for the number of characters user is requesting.
+
+  // Issue #3 
+  // Add a prompt for the number of characters user is requesting.
   // The parse integer function is used with the prompt to give the value entered a type of number as it will deafult to a string.
   // The while function will continue to prompt until a valid value is entered.  If text is entered it will be caught
   // by the !numCtrs expression since it would return NaN when trying to parse which is falsy.
@@ -31,7 +38,8 @@ function passPrompt() {
   numCtrs = parseInt(prompt(`You entered: ${numCtrs}. Please enter a valid number between 8 - 128.`));
   }
 
-  // Issue #2 - Select which character types to include
+  // Issue #2 
+  // Select which character types to include
   // This will ask to include special characters and store it in the specialCharac variable.
   let specialCharac= parseInt(prompt('Would you like to include special characters in your password? 1 = Yes, 2 = No'))
 
@@ -43,6 +51,7 @@ function passPrompt() {
       alert('Special Characters will not be included in your password.');
   }
 
+  // Issue #4
   // This will ask to include lowercase letters and store it in the upperCaseLett variable.
   let lowerCaseLett = parseInt(prompt('Would you like to include lowercase letters in your password? 1 = Yes or 2 = No.'));
 
@@ -75,7 +84,12 @@ function passPrompt() {
     alert('Thank you.  Numeric characters will be included in your password.');
   } else {
     alert('Numeric characters will not be included in your password.');
-  }
+  };
+
+  // Storing user responses in an object in an array.
+  userInput = [
+    {NumberCharacters: numCtrs, SpecialCharacters: specialCharac, Lowercase: lowerCaseLett, Uppercase: upperCaseLett}
+  ]
 
 }
 
