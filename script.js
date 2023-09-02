@@ -48,7 +48,7 @@ function passPrompt() {
   } if (specialCharac === 1) {
       alert('Thank you.  Special Characters will be included in your password.');
   } else {
-      alert('Special Characters will not be included in your password.');
+    alert('Special Characters will not be included in your password.');
   }
 
   // Issue #4
@@ -88,11 +88,32 @@ function passPrompt() {
 
   // Storing user responses in an object in an array.
   userInput = [
-    {NumberCharacters: numCtrs, SpecialCharacters: specialCharac, Lowercase: lowerCaseLett, Uppercase: upperCaseLett}
+    {passwordLength: numCtrs, specialCharacters: specialCharac, Lowercase: lowerCaseLett, Uppercase: upperCaseLett, Numeric: numericCharac}
   ]
 
 }
 
+// The list below sets variables for the some of the potential values to include in the password.
+let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-// For testing purposes only.
-// let randomNum = Math.floor(Math.random()*128)
+let specialCharacList = ['!', '@', '#', '$', '%', '&', '*'];
+
+let alphabetUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+let alphabetLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] 
+
+let password = ""
+
+// This function can be used to randomize the different characters.
+function randomize(array) {
+  let random = Math.floor(Math.random() * array.length)
+  return array[random];
+ }
+
+
+
+// while (password.length <= userInput[0].passwordLength) {
+
+// }
+
+
