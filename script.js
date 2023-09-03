@@ -92,9 +92,11 @@ function passPrompt() {
     specialCharacters: specialCharac, 
     Lowercase: lowerCaseLett, 
     Uppercase: upperCaseLett, 
-    Numeric: numericCharac
+    Numeric: numericCharac,
   }
 
+  generateArray();
+  generatePassword();
 }
 
 // The list below sets variables for the some of the potential values to include in the password.
@@ -103,29 +105,28 @@ let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 let specialCharacList = ['!', '@', '#', '$', '%', '&', '*'];
 
-let alphabetUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+let alphabetUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-let alphabetLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+let alphabetLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-passwordLength = userInput.passwordLength
+
+// This variable is returning a value of undefined and is not reading the value from the object correctly.  It is causing issue with the password generation function.
+let passGenLength = userInput.passwordLength;
 
 // I will need to use the values captured from the prompts to create one array from the many.
 
-// This function can be used to randomize the different characters in an array.
+// This function can be used to randomize the different characters in an array.  It is used within the generate password function to genearte the random characters using the array from the generateArray function.
 function randomize(array) {
   let random = Math.floor(Math.random() * array.length)
   return array[random];
  }
 
-
+let passwordArray = generateArray();
  //This function will concatenate the arrays to use the values needed to generate the random password from the user's selections.
-
-
-
 function generateArray() {
   // I'm creating an empty container for the concatenated array that will be created from the user's selections.
   
-  let passwordArray;
+  // let passwordArray;
 
   // Includes all possible arrays.
   if (userInput.specialCharacters === 1 && userInput.Lowercase === 1 && userInput.Uppercase === 1 && userInput.Numeric === 1) {
@@ -217,16 +218,15 @@ function generateArray() {
 
     return passwordArray;
 
-  } else {
-    alert("You didn't select the criteria required to generate a password.");
-  }
+  } 
     
 }
 
 function generatePassword() {
   let passwordGen = 0;
-  
-  for (let p = 0; p < passwordLength; p++) {
+
+  // The passGenLength variable is not being defined within this function.
+  for (let p = 0; p < userInput.passwordLength; p++) {
    passwordGen += randomize(passwordArray);
     
   } 
