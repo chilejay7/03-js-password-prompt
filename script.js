@@ -226,7 +226,7 @@ function generateArray() {
 function generatePassword() {
   let passwordGen = 0;
   
-  for (let p = 0; p <= passwordLength; p++) {
+  for (let p = 0; p < passwordLength; p++) {
    passwordGen += randomize(passwordArray);
     
   } 
