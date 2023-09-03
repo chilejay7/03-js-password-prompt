@@ -220,14 +220,18 @@ function generateArray() {
   } else {
     alert("You didn't select the criteria required to generate a password.");
   }
+    
+}
 
-
-
+function generatePassword() {
+  let passwordGen = 0;
   
+  for (let p = 0; p <= passwordLength; p++) {
+   passwordGen += randomize(passwordArray);
+    
+  } 
 
-
-
-  
+  return passwordGen;
 }
 
 
