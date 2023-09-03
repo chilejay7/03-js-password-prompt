@@ -162,7 +162,65 @@ function generateArray() {
     passwordArray = specialCharacList
 
     return passwordArray;
+
+// Includes only lowercase.
+  } else if (userInput.specialCharacters === 2 && userInput.Lowercase === 1 && userInput.Uppercase === 2 && userInput.Numeric === 2) {
+    passwordArray = alphabetLower
+
+    return passwordArray;
+
+//Includes only uppercase. 
+  } else if (userInput.specialCharacters === 2 && userInput.Lowercase === 2 && userInput.Uppercase === 1 && userInput.Numeric === 2) {
+    passwordArray = alphabetUpper
+
+    return passwordArray;
+
+// Includes only numeric.
+  } else if (userInput.specialCharacters === 2 && userInput.Lowercase === 2 && userInput.Uppercase === 2 && userInput.Numeric === 1) {
+    passwordArray = numbers
+
+    return passwordArray;
+
+// Includes special characters and lowercase.
+  } else if (userInput.specialCharacters === 1 && userInput.Lowercase === 1 && userInput.Uppercase === 2 && userInput.Numeric === 2) {
+    passwordArray = specialCharacList.concat(alphabetLower)
+
+    return passwordArray;
+
+// Includes special characters and uppercase.
+  } else if (userInput.specialCharacters === 1 && userInput.Lowercase === 2 && userInput.Uppercase === 1 && userInput.Numeric === 2) {
+    passwordArray = specialCharacList.concat(alphabetUpper)
+
+    return passwordArray;
+
+//Includes special characters and numbers.
+  } else if (userInput.specialCharacters === 1 && userInput.Lowercase === 2 && userInput.Uppercase === 2 && userInput.Numeric === 1) {
+    passwordArray = specialCharacList.concat(numbers)
+
+    return passwordArray;
+
+// Includes lowercase and uppercase.
+  } else if (userInput.specialCharacters === 2 && userInput.Lowercase === 1 && userInput.Uppercase === 1 && userInput.Numeric === 2) {
+    passwordArray = alphabetLower.concat(alphabetUpper)
+
+    return passwordArray;
+
+// Includes lowercase and numbers.
+  } else if (userInput.specialCharacters === 2 && userInput.Lowercase === 1 && userInput.Uppercase === 2 && userInput.Numeric === 1) {
+    passwordArray = alphabetLower.concat(numbers)
+
+    return passwordArray;
+
+// Includes uppercase and numbers.
+  } else if (userInput.specialCharacters === 2 && userInput.Lowercase === 2 && userInput.Uppercase === 1 && userInput.Numeric === 1) {
+    passwordArray = alphabetUpper.concat(numbers)
+
+    return passwordArray;
+
+  } else {
+    alert("You didn't select the criteria required to generate a password.");
   }
+
 
 
   
