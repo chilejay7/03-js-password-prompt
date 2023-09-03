@@ -223,7 +223,7 @@ function generateArray() {
 }
 
 function generatePassword() {
-  let passwordGen = 0;
+  let passwordGen = 1;
 
   // The passGenLength variable is not being defined within this function.
   for (let p = 0; p < userInput.passwordLength; p++) {
