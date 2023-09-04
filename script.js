@@ -11,7 +11,7 @@ function writePassword() {
 }
 
 // Add event listener to generate button.
-// This was updated to use the passPrompt function.
+// This was updated to use the passPrompt function.  The write password fucntion was moved to be called within the passPrompt function.
 generateBtn.addEventListener("click", passPrompt);
 
 
@@ -117,7 +117,7 @@ function passPrompt() {
 
 let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-let specialCharacList = ['!', '@', '#', '$', '%', '&', '*'];
+let specialCharacList = ['!', '@', '#', '$', '%', '&', '*', '(', ')', '+', '-', '/', ':', ';', '<', '>', '=', '?', '[', ']', '_', '{', '}', '|', '~'];
 
 let alphabetUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
@@ -242,7 +242,6 @@ function generateArray() {
 function generatePassword() {
   let passwordGen = '';
 
-  // The passGenLength variable is not being defined within this function.
   for (let p = 0; p < userInput.passwordLength; p++) {
    passwordGen += randomize(passwordArray);
     
