@@ -10,15 +10,16 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// Add event listener to generate button.
+// This was updated to use the passPrompt function.
+generateBtn.addEventListener("click", passPrompt);
 
 
 // The userInput variable needed to be declared within the global scope to make data avaible to other functions and statements.  The varialbe was created empty to capture to the output of the passPrompt function.
 let userInput = "";
 
 //Issue #1 - Open prompt on click
-// The function below was added to the attributes of the button element in the html.
+// The function below was added to the attributes of the button element in the html.  This was not needed and was removed.
 
 function passPrompt() {
 
@@ -34,15 +35,25 @@ function passPrompt() {
 
   let numCtrs = parseInt(prompt('How many characters would you like to include in your password?  Please enter a number between 8 and 128.'));
 
+  // This message would need to be updated to as the prompt will close.
   while (!numCtrs || numCtrs < 8 || numCtrs > 128) {
-  numCtrs = parseInt(prompt(`You entered: ${numCtrs}. Please enter a valid number between 8 - 128.`));
+  numCtrs = alert(`You entered: ${numCtrs}. Please enter a valid number between 8 - 128.`);
+
+  // This was added to close the loop.
+  return null;
+
   }
 
-  // Issue #2 
-  // Select which character types to include
-  // This will ask to include special characters and store it in the specialCharac variable.
+// Issue #2 
+// Select which character types to include.
+
+// This will ask to include special characters and store it in the specialCharac variable.
+
+// Confirms can be used here to reduce the amount of code as it would return a boolean based on selection.  Alerts, confirms, prompts can all be used to different effect and return differing values.
+
   let specialCharac= parseInt(prompt('Would you like to include special characters in your password? 1 = Yes, 2 = No'))
 
+// The while loops in these statements will again need return null values added to allow the loop to close.
   while (!specialCharac || specialCharac > 2) {
     specialCharac = parseInt(prompt('Please select a valid response by either entering 1 for Yes or 2 for No.'));
   } if (specialCharac === 1) {
@@ -97,6 +108,9 @@ function passPrompt() {
 
   generateArray();
   generatePassword();
+
+  //This was added to call the function since the Event Listener was changed to run the passPrompt function.
+  writePassword();
 }
 
 // The list below sets variables for the some of the potential values to include in the password.
@@ -110,8 +124,8 @@ let alphabetUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
 let alphabetLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 
-// This variable is returning a value of undefined and is not reading the value from the object correctly.  It is causing issue with the password generation function.
-let passGenLength = userInput.passwordLength;
+
+// let passGenLength = userInput.passwordLength;
 
 // I will need to use the values captured from the prompts to create one array from the many.
 
@@ -122,11 +136,14 @@ function randomize(array) {
  }
 
 let passwordArray = generateArray();
+
+
  //This function will concatenate the arrays to use the values needed to generate the random password from the user's selections.
+
 function generateArray() {
   // I'm creating an empty container for the concatenated array that will be created from the user's selections.
   
-  // let passwordArray;
+  // let passwordArray = '';
 
   // Includes all possible arrays.
   if (userInput.specialCharacters === 1 && userInput.Lowercase === 1 && userInput.Uppercase === 1 && userInput.Numeric === 1) {
@@ -223,7 +240,7 @@ function generateArray() {
 }
 
 function generatePassword() {
-  let passwordGen = 1;
+  let passwordGen = '';
 
   // The passGenLength variable is not being defined within this function.
   for (let p = 0; p < userInput.passwordLength; p++) {
