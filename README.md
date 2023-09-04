@@ -12,7 +12,7 @@ https://chilejay7.github.io/03-js-password-prompt/
 
 A screenshot of the website design is included below for reference.  Clicking the "Generate Password" button will trigger the JavaScript function to begin a series of prompts for password criteria to the user would like to include.  Once all criteria have been selected, a random password will be generated in the bo
 
-![alt text](assets/images/deployed_site.png)
+![alt text](./assets/deployed_passGen.png)
 
 ## Credits
 
