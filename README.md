@@ -1,4 +1,4 @@
-# 03-password-prompt
+# Random Password Generator
 
 ## Description
 
