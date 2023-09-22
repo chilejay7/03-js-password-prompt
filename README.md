@@ -2,7 +2,7 @@
 
 ## Description
 
-A basic website was presented in the form of an html document with CSS styling added.  An application tha would allow an employee to generate a random password based on criteria they've selected was requested.
+A basic website was presented in the form of an html document with CSS styling added.  An application that would allow an employee to generate a random password based on criteria they've selected was requested.
 
 ## Website URL
 
